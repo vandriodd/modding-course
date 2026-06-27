@@ -23,6 +23,9 @@ public class ModCreativeModeTabs {
                                 output.accept(ModItems.ALEXANDRITE.get());
                                 output.accept(ModItems.METAL_DETECTOR.get());
 
+                                output.accept(ModItems.KOHLRABI.get());
+                                output.accept(ModItems.CANNABIS.get());
+
                                 output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
                                 output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
                                 output.accept(ModBlocks.ALEXANDRITE_ORE_BLOCK.get());
