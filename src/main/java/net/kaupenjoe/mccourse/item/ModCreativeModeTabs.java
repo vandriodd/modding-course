@@ -25,6 +25,7 @@ public class ModCreativeModeTabs {
 
                                 output.accept(ModItems.KOHLRABI.get());
                                 output.accept(ModItems.CANNABIS.get());
+                                output.accept(ModItems.PEAT_BRICK.get());
 
                                 output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
                                 output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
