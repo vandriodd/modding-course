@@ -1,6 +1,7 @@
 package net.kaupenjoe.mccourse.block;
 
 import net.kaupenjoe.mccourse.MCCourseMod;
+import net.kaupenjoe.mccourse.block.custom.SoundBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -38,6 +39,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> NETHER_ALEXANDRITE_ORE_BLOCK = registerBlock("nether_alexandrite_ore_block",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHERRACK).strength(5f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
+
+    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
+            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     /*
     If you add "of()", you can implement custom behaviors
