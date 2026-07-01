@@ -39,6 +39,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
                 block -> createOreDrop(ModBlocks.END_STONE_ALEXANDRITE_ORE.get(),
                         ModItems.ALEXANDRITE.get()));
+
+        this.dropSelf(ModBlocks.ALEXANDRITE_STAIRS.get());
+
+        this.add(ModBlocks.ALEXANDRITE_SLAB.get(),
+                block -> createSlabItemTable(ModBlocks.ALEXANDRITE_SLAB.get()));
     }
 
     // It goes through all blocks that has been registered via the custom deferred register

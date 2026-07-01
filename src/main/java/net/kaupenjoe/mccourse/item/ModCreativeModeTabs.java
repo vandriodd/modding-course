@@ -35,6 +35,9 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.NETHER_ALEXANDRITE_ORE.get());
 
                                 output.accept(ModBlocks.SOUND_BLOCK.get());
+
+                                output.accept(ModBlocks.ALEXANDRITE_STAIRS.get());
+                                output.accept(ModBlocks.ALEXANDRITE_SLAB.get());
                             }).build());
 
     public static void register(IEventBus eventBus) {

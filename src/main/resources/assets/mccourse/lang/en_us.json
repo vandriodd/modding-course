@@ -16,6 +16,9 @@
   "block.mccourse.nether_alexandrite_ore_block": "Ore Block of Alexandrite on Nether",
   "block.mccourse.sound_block": "Sound Block",
 
+  "block.mccourse.alexandrite_stairs": "Alexandrite Stairs",
+  "block.mccourse.alexandrite_slab": "Alexandrite Slab",
+
   "creativetab.course_tab": "Course Tab",
 
   "item.mccourse.metal_detector.no_valuable": "No Valuables found",
