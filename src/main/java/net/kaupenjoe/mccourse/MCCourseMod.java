@@ -56,10 +56,10 @@ public class MCCourseMod {
         }
 
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.accept(ModBlocks.ALEXANDRITE_ORE_BLOCK);
-            event.accept(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE_BLOCK);
-            event.accept(ModBlocks.END_STONE_ALEXANDRITE_ORE_BLOCK);
-            event.accept(ModBlocks.NETHER_ALEXANDRITE_ORE_BLOCK);
+            event.accept(ModBlocks.ALEXANDRITE_ORE);
+            event.accept(ModBlocks.DEEPSLATE_ALEXANDRITE_ORE);
+            event.accept(ModBlocks.END_STONE_ALEXANDRITE_ORE);
+            event.accept(ModBlocks.NETHER_ALEXANDRITE_ORE);
         }
     }
 
