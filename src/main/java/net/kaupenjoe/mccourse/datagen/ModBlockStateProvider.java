@@ -39,10 +39,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
         fenceGateBlock((FenceGateBlock) ModBlocks.ALEXANDRITE_FENCE_GATE.get(), blockTexture(ModBlocks.ALEXANDRITE_BLOCK.get()));
         wallBlock((WallBlock) ModBlocks.ALEXANDRITE_WALL.get(), blockTexture(ModBlocks.ALEXANDRITE_BLOCK.get()));
 
+        // Door renders in two halves, bottom and top, so you need to specify that
+        doorBlockWithRenderType((DoorBlock) ModBlocks.ALEXANDRITE_DOOR.get(), modLoc("block/alexandrite_door_bottom"),
+                modLoc("block/alexandrite_door_top"), "cutout");
+        trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.ALEXANDRITE_TRAPDOOR.get(), modLoc("block/alexandrite_trapdoor"),
+                true, "cutout");
+
         blockItem(ModBlocks.ALEXANDRITE_STAIRS);
         blockItem(ModBlocks.ALEXANDRITE_SLAB);
         blockItem(ModBlocks.ALEXANDRITE_PRESSURE_PLATE);
         blockItem(ModBlocks.ALEXANDRITE_FENCE_GATE);
+
+        blockItem(ModBlocks.ALEXANDRITE_TRAPDOOR, "_bottom");
     }
 
     // Helper methods
@@ -52,5 +60,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mccourse:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+    }
+
+    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mccourse:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath() + appendix));
     }
 }

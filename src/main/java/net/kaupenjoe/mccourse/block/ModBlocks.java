@@ -66,6 +66,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> ALEXANDRITE_WALL = registerBlock("alexandrite_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
+    public static final RegistryObject<Block> ALEXANDRITE_DOOR = registerBlock("alexandrite_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK), BlockSetType.IRON));
+    public static final RegistryObject<Block> ALEXANDRITE_TRAPDOOR = registerBlock("alexandrite_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK), BlockSetType.IRON));
+
     /*
     If you add "of()", you can implement custom behaviors
     public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
