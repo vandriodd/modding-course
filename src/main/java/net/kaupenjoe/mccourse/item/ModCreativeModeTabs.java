@@ -47,6 +47,12 @@ public class ModCreativeModeTabs {
 
                                 output.accept(ModBlocks.ALEXANDRITE_DOOR.get());
                                 output.accept(ModBlocks.ALEXANDRITE_TRAPDOOR.get());
+
+                                output.accept(ModItems.ALEXANDRITE_SWORD.get());
+                                output.accept(ModItems.ALEXANDRITE_PICKAXE.get());
+                                output.accept(ModItems.ALEXANDRITE_SHOVEL.get());
+                                output.accept(ModItems.ALEXANDRITE_AXE.get());
+                                output.accept(ModItems.ALEXANDRITE_HOE.get());
                             }).build());
 
     public static void register(IEventBus eventBus) {

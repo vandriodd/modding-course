@@ -28,6 +28,12 @@
   "block.mccourse.alexandrite_door": "Alexandrite Door",
   "block.mccourse.alexandrite_trapdoor": "Alexandrite Trapdoor",
 
+  "item.mccourse.alexandrite_sword": "Alexandrite Sword",
+  "item.mccourse.alexandrite_pickaxe": "Alexandrite Pickaxe",
+  "item.mccourse.alexandrite_shovel": "Alexandrite Shovel",
+  "item.mccourse.alexandrite_axe": "Alexandrite Axe",
+  "item.mccourse.alexandrite_hoe": "Alexandrite Hoe",
+
   "creativetab.course_tab": "Course Tab",
 
   "item.mccourse.metal_detector.no_valuable": "No Valuables found",
