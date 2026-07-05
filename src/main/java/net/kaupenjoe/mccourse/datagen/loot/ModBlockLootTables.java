@@ -55,6 +55,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ALEXANDRITE_TRAPDOOR.get());
         this.add(ModBlocks.ALEXANDRITE_DOOR.get(),
                 block -> createDoorTable(ModBlocks.ALEXANDRITE_DOOR.get()));
+
+        this.dropSelf(ModBlocks.ALEXANDRITE_LAMP.get());
     }
 
     // It goes through all blocks that has been registered via the custom deferred register
