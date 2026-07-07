@@ -64,6 +64,7 @@ public class ModCreativeModeTabs {
                                 output.accept(ModBlocks.ALEXANDRITE_LAMP.get());
 
                                 output.accept(ModItems.DATA_TABLET.get());
+                                output.accept(ModItems.KOHLRABI_SEEDS.get());
                             }).build());
 
     public static void register(IEventBus eventBus) {
