@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.kaupenjoe.mccourse.block.ModBlocks;
 import net.kaupenjoe.mccourse.enchantment.ModEnchantments;
 import net.kaupenjoe.mccourse.item.ModCreativeModeTabs;
+import net.kaupenjoe.mccourse.item.ModItemProperties;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -77,7 +78,11 @@ public class MCCourseMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            event.enqueueWork(() -> {
+                // The only downside of using ModItemProperties (using properties) is that
+                // we cannot no longer create the item model via the registration at ModItemModelProvider.java
+                ModItemProperties.addCustomItemProperties();
+            });
         }
     }
 }
