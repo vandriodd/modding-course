@@ -1,16 +1,23 @@
 package net.kaupenjoe.mccourse.event;
 
 import net.kaupenjoe.mccourse.MCCourseMod;
+import net.kaupenjoe.mccourse.enchantment.ModEnchantments;
 import net.kaupenjoe.mccourse.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = MCCourseMod.MOD_ID)
@@ -40,5 +47,63 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onGreenThumbHoeUsage(BlockEvent.BreakEvent event) {
+        Player player = event.getPlayer();
+        if (player == null) {
+            return;
+        }
+
+        ItemStack mainHandItem = player.getMainHandItem();
+        if (!(mainHandItem.getItem() instanceof HoeItem)) {
+            return;
+        }
+
+        if (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.GREEN_THUMB.get(), mainHandItem) <= 0) {
+            return;
+        }
+
+        if (!(event.getState().getBlock() instanceof CropBlock cropBlock) || !cropBlock.isMaxAge(event.getState())) {
+            return;
+        }
+
+        if (!(event.getLevel() instanceof ServerLevel serverLevel)) {
+            return;
+        }
+
+        BlockPos pos = event.getPos();
+
+        // Prevents Minecraft from breaking the block normally (otherwise the replant below would get overwritten right after)
+        event.setCanceled(true);
+
+        // Since we canceled the event, we have to drop the loot ourselves
+        List<ItemStack> drops = Block.getDrops(
+                event.getState(),
+                serverLevel,
+                pos,
+                serverLevel.getBlockEntity(pos),
+                player,
+                mainHandItem
+        );
+
+        // Charge one seed for the replant, same as manually harvesting and replanting by hand
+        ItemStack seed = cropBlock.getCloneItemStack(serverLevel, pos, event.getState());
+        for (ItemStack drop : drops) {
+            if (ItemStack.isSameItem(drop, seed)) {
+                drop.shrink(1);
+                break;
+            }
+        }
+
+        drops.forEach(stack -> {
+            if (!stack.isEmpty()) {
+                Block.popResource(serverLevel, pos, stack);
+            }
+        });
+
+        // Replant the same crop at age 0
+        serverLevel.setBlockAndUpdate(pos, cropBlock.getStateForAge(0));
     }
 }
