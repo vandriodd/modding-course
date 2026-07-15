@@ -22,6 +22,10 @@ public class SetHomeCommand {
         player.getPersistentData().putIntArray("mccourse.homepos",
                 new int[] { playerPos.getX(), playerPos.getY(), playerPos.getZ() });
 
+        // Stores the dimension as string in the NBT
+        player.getPersistentData().putString("mccourse.homedim",
+                player.level().dimension().location().toString());
+
         context.getSource().sendSuccess(() -> Component.literal("Set Home at " + positionString), true);
         return 1;
     }
