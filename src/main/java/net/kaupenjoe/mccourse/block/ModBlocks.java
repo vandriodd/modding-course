@@ -7,6 +7,7 @@ import net.kaupenjoe.mccourse.block.custom.SoundBlock;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -88,6 +89,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.IRON_XYLOPHONE)));
     */
+
+    public static final RegistryObject<Block> SNAPDRAGON = registerBlock("snapdragon",
+            () -> new FlowerBlock(() -> MobEffects.BLINDNESS, 6, BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
+
+    // Use BLOCKS.register because flower pot does not have an associated block item with it
+    public static final RegistryObject<Block> POTTED_SNAPDRAGON = BLOCKS.register("potted_snapdragon",
+            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), SNAPDRAGON, BlockBehaviour.Properties.copy(Blocks.ALLIUM)));
 
     // These two methods are for register a block
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

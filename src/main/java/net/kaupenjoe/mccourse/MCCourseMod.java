@@ -7,7 +7,9 @@ import net.kaupenjoe.mccourse.item.ModCreativeModeTabs;
 import net.kaupenjoe.mccourse.item.ModItemProperties;
 import net.kaupenjoe.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -49,6 +51,9 @@ public class MCCourseMod {
         event.enqueueWork(() -> {
             ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI.get(), 0.35f);
             ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI_SEEDS.get(), 0.20f);
+
+            // Allow our custom flowers to be potted(?
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.SNAPDRAGON.getId(), ModBlocks.POTTED_SNAPDRAGON);
         });
     }
 

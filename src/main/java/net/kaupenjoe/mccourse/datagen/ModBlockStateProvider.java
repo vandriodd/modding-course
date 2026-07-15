@@ -62,6 +62,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         customLamp();
 
         makeCrop(((KohlrabiCropBlock) ModBlocks.KOHLRABI_CROP.get()), "kohlrabi_stage", "kohlrabi_stage");
+
+        simpleBlock(ModBlocks.SNAPDRAGON.get(),
+                models().cross(blockTexture(ModBlocks.SNAPDRAGON.get()).getPath(), blockTexture(ModBlocks.SNAPDRAGON.get())).renderType("cutout"));
     }
 
     // Helper methods
