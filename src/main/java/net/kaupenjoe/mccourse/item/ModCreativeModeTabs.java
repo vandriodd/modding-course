@@ -67,6 +67,8 @@ public class ModCreativeModeTabs {
                                 output.accept(ModItems.KOHLRABI_SEEDS.get());
 
                                 output.accept(ModBlocks.SNAPDRAGON.get());
+
+                                output.accept(ModItems.BAR_BRAWL_RECORD.get());
                             }).build());
 
     public static void register(IEventBus eventBus) {

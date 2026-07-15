@@ -44,6 +44,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.KOHLRABI);
         simpleItem(ModItems.CANNABIS);
 
+        simpleItem(ModItems.BAR_BRAWL_RECORD);
+
         // simpleItem(ModItems.DATA_TABLET);
 
         // Commented because of trimmable
